@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="mycanvas"></canvas>
+    <script>
+      const mycanvas = document.getElementById("mycanvas");
+      mycanvas.width = window.innerWidth;
+      mycanvas.height = window.innerHeight;
+      const c = mycanvas.getContext("2d");
+
+      // membuat lingkaran / circle / arc
+      let x = 300;
+      let speed = 5;
+      let radius = 150;
+
+      function draw() {
+        window.requestAnimationFrame(draw);
+        c.clearRect(0, 0, innerWidth, innerHeight);
+        c.lineWidth = "10";
+        c.strokeStyle = "red";
+        c.fillStyle = "lightgreen";
+        c.beginPath();
+        c.arc(x, 200, radius, 0, 2 * Math.PI);
+        c.fill();
+        c.stroke();
+
+        if (x + radius > innerWidth || x - radius < 0) {
+          speed = -speed;
+        }
+        x += speed;
+      }
+
+      draw();
+    </script>
+  </body>
+</html>
