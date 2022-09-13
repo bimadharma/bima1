@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id='mycanvas'></canvas>
+    <script>
+      const mycanvas = document.getElementById('mycanvas');
+      mycanvas.width = window.innerWidth;
+      mycanvas.height = window.innerHeight;
+      const c = mycanvas.getContext('2d');
+
+      // membuat Rectangle
+      c.fillStyle = 'pink';
+      c.strokeStyle = '#999';
+      c.lineWidth = '10';
+
+      c.rect(400, 50, 300, 300);
+      c.fill();
+      c.stroke();
+
+      // membuat lingkaran / circle / arc
+      c.fillStyle = 'lightgreen';
+      c.beginPath();
+      c.arc(180, 200, 150, 0, 2 * Math.PI);
+      c.fill();
+      c.stroke();
+
+      //membuat segitiga
+      c.fillStyle = 'lightblue';
+      c.beginPath();
+      c.moveTo(900, 50);
+      c.lineTo(1050, 350);
+      c.lineTo(750, 350);
+      c.closePath();
+      c.fill();
+      c.stroke();
+    </script>
+  </body>
+</html>
